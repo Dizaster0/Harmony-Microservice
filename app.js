@@ -10,8 +10,9 @@ app.use(`/api/${process.env.version}/scales`, scaleRoutes);
 app.use(`/api/${process.env.version}/chords`, chordRoutes);
 app.use((req, res, next) => {
     const error = new Error('Please enter a valid HTTP request.');
-    error.status = 404;
-    next(error);
+    res.status(404).json({
+        message: 'Please enter a valid API request'
+    })
 });
 
 module.exports = app;
