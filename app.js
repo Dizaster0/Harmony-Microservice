@@ -9,7 +9,6 @@ app.use(morgan('dev'));
 app.use(`/api/${process.env.version}/scales`, scaleRoutes);
 app.use(`/api/${process.env.version}/chords`, chordRoutes);
 app.use((req, res, next) => {
-    const error = new Error('Please enter a valid HTTP request.');
     res.status(404).json({
         message: 'Please enter a valid API request'
     })
